@@ -1,0 +1,63 @@
+body {
+  background-image: url("slike/Background1.jpg");
+  background-color: #cccccc;
+color: white;
+}
+#menu {
+
+display:inline-block;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+} 
+
+
+h1 {text-align: center;}
+h3 {font-family: DejaVu Sans Mono, monospace;}
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover 
+{
+     color: white; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+.attbutton 
+{
+margin-left: 10px;
+margin-right: 10px;
+margin-bottom: 10px;
+margin-top: 10px;
+border-radius: 12px;
+font-size: 24px;
+width: 300px;
+padding: 50px 40px;
+}
+.button {
+transition-duration: 0.4s;
+border-radius: 12px;
+font-size: 24px;
+padding: 14px 40px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 40px;
+margin-top: 40px;
+}
+.buttondiv
+{
+display: block;
+}
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+border-radius: 12px;
+ box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
