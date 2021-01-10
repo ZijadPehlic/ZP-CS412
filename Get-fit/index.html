@@ -1,0 +1,139 @@
+<?php
+session_start();
+
+$message=null;
+if($_GET["logout"]==1 AND $_SESSION['id']) {
+	session_destroy();
+
+	$message="You have been logged out. Hope to see you soon!";
+}
+include("connection.php");
+
+$error="";
+
+
+if(empty($_POST['email'])){
+   $_POST['email'] =null;
+}
+
+
+if(isset($_POST['submit'])){
+if($_POST['submit'] == "Sign Up"){
+		if (!$_POST['email']) $error.="<br />Please enter your email";
+
+
+else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $error.="<br />Please enter a valid email";
+
+
+
+if (!$_POST['password']) $error.="<br />Please enter your password";
+else {
+
+
+if (strlen($_POST['password'])<8) $error.="<br />Please enter at least 8 characters";
+
+if(!preg_match('/[A-Z]/', $_POST['password'])) $error.= "<br />Please include min 1 capital letter";
+}
+if(!$_POST['name']) $error.="<br /> Please enter your name";
+if($error) $error= "There were error(s) in your signup details:".$error;
+else {
+
+
+$query= "SELECT * FROM `users1` WHERE email ='".mysqli_real_escape_string($conn, $_POST['email'])."'";
+$result = mysqli_query($conn, $query);
+$results = mysqli_num_rows($result);
+if ($results) $error= "That email adress is already registered. Do you want to log in?";
+else {
+
+$query = "INSERT INTO `users1` (`email`, `password`,`name`) VALUES ('".mysqli_real_escape_string($conn, $_POST['email'])."','".md5(md5($_POST['email']).$_POST['password'])."','".mysqli_real_escape_string($conn, $_POST['name'])."')";
+
+mysqli_query($conn,$query);
+
+
+
+
+echo "You've been signed up!";
+$_SESSION['id']=mysqli_insert_id($conn);
+
+header("Location:mainpage.php");
+
+}
+$query = "INSERT INTO `users` (`name`) VALUES ('".mysqli_real_escape_string($conn, $_POST['name'])."')";
+
+}
+
+}
+
+?>
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Shape</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" type"text/css" href="shapeCSS.css">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+<div class="bg-img">
+  <div class="container">
+    <div class="fixedWidth">
+<header>
+    <img class="logo" src="Images/pin.png" alt="logo" height=90px; width=90px/>
+
+      <nav>
+        <ul class="nav__links">
+
+          <li><a href="#About us">About us</a></li>
+          <li><a href="trainingPlans.html">Training plans</a></li>
+          <li><a href="nutritionPage.html">Nutrition plans</a></li>
+          <li><a href="#">Contact</a></li>
+
+          <a class="cta" href="#"><button>Sign Up</button></a>
+        </ul>
+
+      </nav>
+  <a class="cta" href="#"><button>Log in</button></a>
+
+</header>
+    </div>
+
+    <div class="content">
+
+      <p>Welcome to Shape.</br>Start today.</br>Shape. Yourself.</p>
+    </div>
+
+    <div class="scroll">
+      <a name="About us"/>
+      <p>About us.</br>We are an organization that will help You achieve Your goals.<br> Shape is a Sarajevo-based platform that helps users transform their body and their mind.</br> Using our training and nutrition plans, our Customers will recieve only the best instructions.</p>
+
+
+  </div>
+
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+</body>
+
+</html>
