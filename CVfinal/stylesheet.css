@@ -1,0 +1,158 @@
+
+body, html {
+  
+}
+#all
+{
+margin: 0px;
+background-image: url("pozadina1.jpg");
+height: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+color: white;
+}
+
+#divTopMenu 
+{
+
+margin-top: 20px;
+margin-left: 20px;
+}
+#dTMI
+{
+display: inline-block;
+margin-left: 20px;
+}
+#divPageBody
+{
+margin-top: 20px;
+margin-left: 20px;
+}
+#NQQ
+{
+font-family: "Snell Roundhand",cursive;
+margin-top: 50px;
+text-align: center;
+font-size: 50px;
+}
+#buttons
+{
+font-size: 30px;
+padding: 70px;
+display: inline-block;
+border-style: solid;
+border-width: medium;
+border-color: white;
+border-radius: 15px;
+margin: 20px;
+-webkit-transition-duration: 0.4s;
+transition-duration: 0.4s;
+}
+#buttons:hover
+{
+background-color: #000033;
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+
+#info1, #info2, #info3
+{
+font-size: 20px;
+display: inline-block;
+padding-left: 200px;
+padding-right: 150px;
+padding-bottom: 10px;
+}
+#cvCont
+{
+font-size: 20px;
+}
+
+
+#mPTitle 
+{
+text-align: center;
+font-size: 50px;
+}
+#mPText
+{
+margin: 15px;
+font-size: 20px;
+}
+#mPPTitle 
+{
+margin: 25px;
+font-size: 40px;
+}
+#mPList
+{
+display: inline-block;
+font-size: 20px;
+}
+#mPDownload
+{
+font-size: 30px;
+padding: 10px;
+margin: 10px;
+text-align: center;
+border-style: solid;
+border-width: medium;
+border-color: black;
+border-radius: 15px;
+-webkit-transition-duration: 0.4s;
+transition-duration: 0.4s;
+}
+.mPDownload
+{
+font-size: 50px;
+padding: 10px;
+margin-left: 400;
+text-align: center;
+border-style: solid;
+border-width: medium;
+border-color: black;
+border-radius: 15px;
+-webkit-transition-duration: 0.4s;
+transition-duration: 0.4s;
+}
+#mPDownload:hover
+{
+background-color: #000033;
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+a:link 
+{
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited 
+{
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover 
+{
+
+  color: blue;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+table {
+	border-collapse:collapse;
+}
+
+td {
+	background-color: black;
+	border: 3px solid white;
+	font-size:80px;
+	color:#ffffff;
+	border-radius: 10px 10px 10px 10px;
+}
